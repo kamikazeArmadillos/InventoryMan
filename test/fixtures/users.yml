@@ -1,0 +1,6 @@
+one:
+  email: "test@test.com"
+  password_digest: tintree73
+  level: 0
+  f_name: "Molly"
+  phone: "234-234-1234"
