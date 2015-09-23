@@ -34,4 +34,10 @@ class UserTest < ActiveSupport::TestCase
     refute @user.valid?
     assert @user.errors.include? :email
   end
+
+  test "user password cannot be blank" do
+    @user.password = nil
+    refute @user.valid?
+    assert @user.errors.include? :password
+  end
 end
