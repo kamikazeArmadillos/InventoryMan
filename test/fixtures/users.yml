@@ -1,5 +1,6 @@
 one:
   email: "test@test.com"
+  encrypted_password: <%= Devise::Encryptor.digest(User, 'password') %>
   level: 0
   f_name: "Molly"
   phone: "234-234-1234"
