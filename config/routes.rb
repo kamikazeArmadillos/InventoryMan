@@ -56,10 +56,10 @@ Rails.application.routes.draw do
   #   end
   root 'users#index'
 
-  resources :users
-  namespace :user do
+  # resources :users
+  scope '/user' do
     resources :businesses
-    namespace :business do
+    scope '/business' do
       resource :inventories
     end
   end
