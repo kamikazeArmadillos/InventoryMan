@@ -55,4 +55,13 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root 'users#index'
+
+  resources :users
+  namespace :user do
+    resources :businesses
+    namespace :business do
+      resource :inventories
+    end
+  end
+
 end
