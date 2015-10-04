@@ -11,7 +11,8 @@ class UserTest < ActiveSupport::TestCase
   end
 
   test "can create user" do
-    @user = User.new(email: "test@test.com", phone: "234-856-2389", f_name: "Billy", password_digest: "password", level: 0)
+    @user = User.new(email: "test2@test.com", phone: "234-856-2389", f_name: "Billy", level: 0)
+    @user.password = "testword"
     assert @user.save
   end
 
@@ -34,27 +35,9 @@ class UserTest < ActiveSupport::TestCase
     assert @user.errors.include? :email
   end
 
-  test "user phone cannot be blank" do
-    @user.phone = nil
-    refute @user.valid?
-    assert @user.errors.include? :phone
-  end
-
-  test "user f_name cannot be blank" do
-    @user.f_name = nil
-    refute @user.valid?
-    assert @user.errors.include? :f_name
-  end
-
   test "user password cannot be blank" do
-    @user.password_digest = nil
+    @user.password = nil
     refute @user.valid?
-    assert @user.errors.include? :password_digest
-  end
-
-  test "user level cannot be blank" do
-    @user.level = nil
-    refute @user.valid?
-    assert @user.errors.include? :level
+    assert @user.errors.include? :password
   end
 end
