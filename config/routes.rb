@@ -55,4 +55,13 @@ Rails.application.routes.draw do
   #     resources :products
   #   end
   root 'users#index'
+
+  # resources :users
+  scope '/user' do
+    resources :businesses
+    scope '/business' do
+      resource :inventories
+    end
+  end
+
 end

@@ -6,5 +6,6 @@ class User < ActiveRecord::Base
   has_many :user_businesses
   has_many :businesses, through: :user_businesses
 
-  validates :email, :password, presence: true
+  validates :email, :encrypted_password, presence: true
+  validates :password, presence: true, if: "id.nil?"
 end
